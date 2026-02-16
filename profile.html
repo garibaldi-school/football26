@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Player Profile • Garibaldi Staff Football Match</title>
+    <meta name="description" content="Comedy staff football profiles for Sports Relief." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar__inner">
+        <a href="index.html" class="brand">
+  <img src="img/logo.png" alt="Gara Staff Football 2026" class="brand__logo">
+</a>
+
+        <div class="topbar__actions">
+          <a id="donateTop" class="btn btn--donate" href="https://www.comicrelief.com/" target="_blank" rel="noopener">
+            Donate ❤️
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="profile">
+      <div class="profile__inner">
+        <div class="profileCard">
+          <div class="profileCard__media">
+            <div class="videoFrame videoFrame--profile">
+              <video id="profileVideo" class="videoFrame__video" autoplay muted loop playsinline controls></video>
+              <div class="videoFrame__badge" id="videoBadge">Highlight Reel</div>
+            </div>
+          </div>
+
+          <div class="profileCard__body">
+            <div class="pill" id="rolePill">Role</div>
+            <h1 class="h1" id="name">Player</h1>
+            <p class="lead" id="tagline">Tagline</p>
+
+            <div class="profileGrid" id="facts"></div>
+
+            <div class="donateNudge">
+              <div class="donateNudge__copy">
+                <h2 class="h2">Donation Challenge</h2>
+                <p class="lead" id="challengeText"></p>
+                <p class="muted">Every donation helps. Also, it gives us leverage to make Mr Chatten stop talking about “plating up”.</p>
+              </div>
+              <div class="donateNudge__actions">
+                <a id="donateProfile" class="btn btn--donate btn--lg" href="https://www.comicrelief.com/" target="_blank" rel="noopener">Donate ❤️</a>
+                <a class="btn btn--ghost btn--lg" href="index.html#cards">Back to cards</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile__aside">
+          <div class="miniPanel">
+            <h2 class="h2">How this works</h2>
+            <ul class="list">
+              <li>Watch the clip.</li>
+              <li>Read the profile (no, Ofsted doesn’t approve of these stats).</li>
+              <li>Donate if you can.</li>
+              <li>Come watch on the day: <strong>Wed 25th March • 15:15 • £1</strong></li>
+            </ul>
+          </div>
+
+          <div class="miniPanel">
+            <h2 class="h2">Share it</h2>
+            <p class="muted">Copy this page and send it to someone who owes you a favour.</p>
+            <button id="copyProfileLink" class="btn btn--ghost" type="button">Copy profile link</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__inner">
+        <div>© The Garibaldi School • Sports Relief 2026</div>
+        <div class="footer__hint">Donate. Or Mr Gray makes us do extra laps.</div>
+      </div>
+    </footer>
+
+    <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="profiles.js"></script>
+    <script src="profile.js"></script>
+  </body>
+</html>

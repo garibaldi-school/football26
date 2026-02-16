@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Garibaldi Staff Football Match • Sports Relief 2026</title>
+    <meta name="description" content="Watch the clips, click the Panini-style cards, and donate to Sports Relief." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip" href="#cards">Skip to cards</a>
+
+    <header class="topbar">
+      <div class="topbar__inner">
+        <div class="brand">
+          <a href="index.html" class="brand">
+  <img src="img/logo.png" alt="Gara Staff Football 2026" class="brand__logo">
+</a>
+
+        <div class="topbar__actions">
+          <button id="packBtn" class="btn btn--ghost" type="button" title="Randomly highlights five staff cards">
+            Open a Pack 🎁
+          </button>
+          <a id="donateTop" class="btn btn--donate" href="https://www.comicrelief.com/" target="_blank" rel="noopener">
+            Donate ❤️
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero__inner hero__inner--single">
+          <div class="hero__copy">
+            <h1 class="h1">Witness these fine athletes in action.</h1>
+            <p class="lead">
+              Wednesday <strong>25th March</strong> • <strong>15:15</strong> • <strong>£1 admission</strong>
+            </p>
+            <p class="sublead">
+              Click the Panini-style video cards to reveal each staff member’s <em>totally serious</em> football profile.
+              Then do the decent thing and donate to Sports Relief.
+            </p>
+
+            <div class="hero__cta">
+              <a id="donateHero" class="btn btn--donate btn--lg" href="https://www.comicrelief.com/" target="_blank" rel="noopener">
+                Donate to Sports Relief ❤️
+              </a>
+
+              <div class="stats stats--compact" aria-label="Event stats">
+                <div class="stat stat--compact">
+                  <div class="stat__num" id="collectedCount">0</div>
+                  <div class="stat__label">cards collected</div>
+                </div>
+                <div class="stat stat--compact">
+                  <div class="stat__num" id="totalCount">0</div>
+                  <div class="stat__label">total staff</div>
+                </div>
+                <div class="stat stat--compact">
+                  <div class="stat__num">£1</div>
+                  <div class="stat__label">admission</div>
+                </div>
+              </div>
+
+            </div>
+</div>
+
+            
+                <div class="stat__label"></div>
+              </div>
+
+            
+            <div class="hero-media-row">
+              <div class="media-card">
+                <img src="img/event-details.png" alt="Event poster: Wednesday 25th March • 15:15 • £1 admission" class="media-card__img"/>
+              </div>
+
+              <div class="media-card media-card--video">
+                <video id="promoVideo" class="media-card__video" autoplay muted loop playsinline>
+                  <source src="video/Sports%20Relief%20Video%202026.mp4" type="video/mp4">
+                </video>
+                <button id="promoSound" class="media-card__sound" type="button" aria-pressed="false" aria-label="Unmute promo video">
+                  🔇 Unmute
+                </button>
+                <div class="media-card__badge">Official Promo</div>
+              </div>
+            </div>
+
+            </div>
+
+              </div>
+          </div>
+            </div></div>
+        </div>
+      
+</section>
+
+      <section class="section" id="cards">
+        <div class="section__head">
+          <h2 class="h2">Tap a card to open the player profile</h2>
+          <p class="muted">
+            Each card is a short clip. Autoplay is muted by design (otherwise browsers throw a fit).
+          </p>
+        </div>
+
+        <div id="cardGrid" class="grid" aria-live="polite"></div>
+      </section>
+
+      <section class="section section--donate">
+        <div class="donatePanel">
+          <h2 class="h2">Help us raise money for Sports Relief</h2>
+          <p class="lead">
+            If you laughed even once, that’s basically a contract. Donate what you can — even a quid helps.
+          </p>
+          <div class="donatePanel__actions">
+            <a id="donateBottom" class="btn btn--donate btn--lg" href="https://www.comicrelief.com/" target="_blank" rel="noopener">
+              Donate ❤️
+            </a>
+            <button id="copyLink" class="btn btn--ghost btn--lg" type="button">
+              Copy page link
+            </button>
+          </div>
+          <p class="muted small">(You can replace the donate link later — search for <code>DONATE_URL</code>.)</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__inner">
+        <div>© The Garibaldi School • Sports Relief 2026</div>
+        <div class="footer__hint">Built like a sticker album. Click. Laugh. Donate.</div>
+      </div>
+    </footer>
+
+    <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="profiles.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
