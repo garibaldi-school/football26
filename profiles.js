@@ -63,15 +63,15 @@ const STAFF = [
     role: "Computing Teacher",
     club: "Accidentally enrolled for MasterChef",
     video: "video/mr_chatten.mp4",
-    tagline: "Keeps looking for the ‘Bake Off’ tent at the side of the pitch.",
-    stats: { position: "Striker (plating up goals)", overall: 80, pacerating: 73, shooting: 74, passing: 76, defending: 52, stamina: 78 },
+    tagline: "Ratings so high they come with a Terms & Conditions pop‑up.",
+    stats: { position: "Striker (sudo‑forward)", overall: 98, pacerating: 95, shooting: 97, passing: 94, defending: 88, stamina: 96 },
     facts: [
-      { label: "Special Move", value: "The ‘Garnish’ — tap-in, then gently sprinkles imaginary parsley." },
-      { label: "Weakness", value: "Stops to judge everyone’s ‘presentation’ on throw‑ins." },
-      { label: "Kitchen Nightmare", value: "Calls the dugout ‘the pass’ (it isn’t)." },
-      { label: "Tech Tip", value: "Tries to debug the offside rule with Python." },
+      { label: "Special Move", value: "The ‘SQL Slide Tackle’ — deletes your confidence with one query." },
+      { label: "Suspicious Stat", value: "Every rating is 90+… and the database audit log is ‘missing’." },
+      { label: "Weakness", value: "None listed. (He removed that field.)" },
+      { label: "VAR Review", value: "Ref checks the monitor and it just says: ‘ACCESS DENIED’." },
     ],
-    challenge: "Donate and we’ll buy him a whistle labelled ‘Chef Ref’ so he stops shouting ‘YES, CHEF!’ at corners.",
+    challenge: "Donate £1+ and he’ll promise (with fingers crossed) not to hack the scoreboard.",
   },
   {
     id: "mr_dawson",
@@ -185,6 +185,24 @@ const STAFF = [
     ],
     challenge: "Donate £1+ and he’ll stop insisting the match needs a ‘clearer marking scheme’.",
   },
+
+  {
+    id: "dr_levitt",
+    name: "Dr Levitt",
+    role: "Maths Teacher (Sixth Form specialist)",
+    club: "A‑Level algebra enjoyer",
+    video: "img/dr_levitt.mp4",
+    tagline: "Turns a counter‑attack into a 12‑mark proof. Nobody asked, but everyone learned something.",
+    stats: { position: "CDM (calculated)", overall: 90, pacerating: 70, shooting: 62, passing: 95, defending: 92, stamina: 84 },
+    facts: [
+      { label: "Special Move", value: "The ‘Differentiation’ — changes direction so fast the winger becomes a function." },
+      { label: "Signature Phrase", value: "‘Let’s just… simplify that.’ (opponents vanish)" },
+      { label: "Weakness", value: "Will stop play to explain why your ‘angle’ is only approximately right." },
+      { label: "Sixth Form Flex", value: "Refuses to take throw‑ins unless they’re in standard form." },
+    ],
+    challenge: "Donate £1+ and he’ll grade the match using a mark scheme and a very small ruler.",
+  },
+
   {
     id: "mr_yorke",
     name: "Mr Yorke",
@@ -281,23 +299,7 @@ const STAFF = [
     ],
     challenge: "Donate £1+ and she’ll stop trying to trademark the phrase ‘Sports Relief’.",
   },
-  {
-    id: "mr_dawson_spare",
-    name: "Mr Dawson (Bonus Card)",
-    role: "History Teacher",
-    club: "Spreadsheet enjoyer",
-    video: "video/mr_dawson.mp4",
-    tagline: "Rare holographic variant. Same enthusiasm, extra graphs.",
-    stats: { position: "Collector’s Edition", overall: 99, pacerating: 1, shooting: 1, passing: 99, defending: 99, stamina: 99 },
-    facts: [
-      { label: "Rarity", value: "1 in 10 packs. (Not really. But it sounds cool.)" },
-      { label: "Power", value: "Can summon a bar chart at will." },
-      { label: "Weakness", value: "None. He’s laminated." },
-      { label: "Note", value: "If you find this card, you must donate. That’s the rules." },
-    ],
-    challenge: "Donate and we’ll let him print the match programme in full colour.",
-  },
-  {
+{
     id: "mr_yorke_spare",
     name: "Mr Yorke (Prototype)",
     role: "Science Technician",
