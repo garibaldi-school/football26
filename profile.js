@@ -1,124 +1,322 @@
-/* global getStaffById, DONATE_URL */
+/*
+  Garibaldi Staff Football Match • Sports Relief 2026
+  Data file: all staff + comedy profile content.
+  Edit here to tweak jokes, roles, and links.
+*/
 
-function $(sel) {
-  return document.querySelector(sel);
+// Change this when you have the real donation URL.
+const DONATE_URL = "https://www.comicrelief.com/";
+
+/** @type {Array<{id:string,name:string,role:string,club:string,video:string,tagline:string,stats:{position:string,overall:number,pacerating:number,shooting:number,passing:number,defending:number,stamina:number},facts:Array<{label:string,value:string}>,challenge:string}>} */
+const STAFF = [
+  {
+    id: "mr_brennan",
+    name: "Mr Brennan",
+    role: "Geography Teacher",
+    club: "Nottingham Forest (die hard)",
+    video: "video/mr_brennan.mp4",
+    tagline: "Knows every river in Europe — still can’t find the touchline.",
+    stats: { position: "Left Wing (by vibes)", overall: 82, pacerating: 71, shooting: 64, passing: 77, defending: 58, stamina: 88 },
+    facts: [
+      { label: "Special Move", value: "The ‘Contour Line’ — runs in circles, claims it’s ‘topography’." },
+      { label: "Weakness", value: "Sees a tree and starts a 20‑minute lecture about biomes." },
+      { label: "Goal Celebration", value: "Maps the route to the corner flag before sliding." },
+      { label: "Matchday Snack", value: "Forest-themed crisps. Absolutely not negotiable." },
+    ],
+    challenge: "Donate £1+ and Mr Brennan will stop shouting ‘COME ON YOU REDS!’ at completely unrelated sports.",
+  },
+  {
+    id: "mr_brimelow",
+    name: "Mr Brimelow",
+    role: "Science Teacher",
+    club: "Thinks football needs more dramatic monologues",
+    video: "video/mr_brimelow.mp4",
+    tagline: "Acting range: 10/10. Passing range: depends if the crowd’s clapping.",
+    stats: { position: "False 9 (true theatre kid)", overall: 79, pacerating: 70, shooting: 68, passing: 72, defending: 55, stamina: 80 },
+    facts: [
+      { label: "Special Move", value: "The ‘Slow‑Mo Fall’ — goes down like a Shakespearean tragedy." },
+      { label: "Weakness", value: "Refuses to tackle unless the lighting is ‘right’." },
+      { label: "Science Fact", value: "Claims his shot has ‘kinetic energy’. Still misses." },
+      { label: "Catchphrase", value: "‘Is this… my villain arc?’" },
+    ],
+    challenge: "Donate and we’ll fund his dream: a VAR booth with spotlighting and dramatic music.",
+  },
+  {
+    id: "mr_chapman",
+    name: "Mr Chapman",
+    role: "Business Teacher",
+    club: "Cricket superfan",
+    video: "video/mr_chapman.mp4",
+    tagline: "Keeps asking the ref where the wickets are.",
+    stats: { position: "Deep-Lying Playmaker (scorecard manager)", overall: 81, pacerating: 62, shooting: 60, passing: 84, defending: 69, stamina: 74 },
+    facts: [
+      { label: "Special Move", value: "The ‘Cover Drive’ — clears the ball… beautifully… to absolutely no one." },
+      { label: "Weakness", value: "Calls every header a ‘bouncer’." },
+      { label: "Business Strategy", value: "Always trying to ‘pivot’ mid‑match. Mostly into trouble." },
+      { label: "Match Notes", value: "Keeps a spreadsheet of ‘runs’ (it’s football, mate)." },
+    ],
+    challenge: "Donate £1+ and Mr Chapman will stop requesting tea breaks every 20 minutes.",
+  },
+  {
+    id: "mr_chatten",
+    name: "Mr Chatten",
+    role: "Computing Teacher",
+    club: "Accidentally enrolled for MasterChef",
+    video: "video/mr_chatten.mp4",
+    tagline: "Ratings so high they come with a Terms & Conditions pop‑up.",
+    stats: { position: "Striker (sudo‑forward)", overall: 98, pacerating: 95, shooting: 97, passing: 94, defending: 88, stamina: 96 },
+    facts: [
+      { label: "Special Move", value: "The ‘SQL Slide Tackle’ — deletes your confidence with one query." },
+      { label: "Suspicious Stat", value: "Every rating is 90+… and the database audit log is ‘missing’." },
+      { label: "Weakness", value: "None listed. (He removed that field.)" },
+      { label: "VAR Review", value: "Ref checks the monitor and it just says: ‘ACCESS DENIED’." },
+    ],
+    challenge: "Donate £1+ and he’ll promise (with fingers crossed) not to hack the scoreboard.",
+  },
+  {
+    id: "mr_dawson",
+    name: "Mr Dawson",
+    role: "History Teacher",
+    club: "Spreadsheet enthusiast",
+    video: "video/mr_dawson.mp4",
+    tagline: "Tracks xG… on parchment.",
+    stats: { position: "Centre Mid (archivist)", overall: 83, pacerating: 61, shooting: 66, passing: 86, defending: 72, stamina: 75 },
+    facts: [
+      { label: "Special Move", value: "The ‘Primary Source’ — produces a laminated chart to prove it was a foul." },
+      { label: "Weakness", value: "Pauses play to ‘cross‑reference’." },
+      { label: "Fun Fact", value: "Has a pivot table for throw‑in success rate." },
+      { label: "Historic Moment", value: "Calls every goal ‘a turning point’." },
+    ],
+    challenge: "Donate £1+ and he’ll stop asking the crowd to complete a post-match survey.",
+  },
+  {
+    id: "mr_glynne-jones",
+    name: "Mr Glynne‑Jones",
+    role: "PE Teacher • HoY 7 & 8",
+    club: "Owns more whistles than sense",
+    video: "video/mr_glynne-jones.mp4",
+    tagline: "Runs the warm-up like it’s the Olympics. Then marks your effort.",
+    stats: { position: "Box-to-Box (with a clipboard)", overall: 86, pacerating: 78, shooting: 70, passing: 80, defending: 76, stamina: 92 },
+    facts: [
+      { label: "Special Move", value: "The ‘Year 7 Sprint’ — makes everyone run… again." },
+      { label: "Weakness", value: "Can’t resist blowing the whistle at his own teammates." },
+      { label: "Motivation", value: "‘If you’ve got energy to talk, you’ve got energy to press!’" },
+      { label: "Secret Weapon", value: "A stopwatch that terrifies grown adults." },
+    ],
+    challenge: "Donate and we’ll convince him the match is NOT assessed against GCSE PE criteria.",
+  },
+  {
+    id: "mr_gray",
+    name: "Mr Gray",
+    role: "Head of PE",
+    club: "Believes hydration is a personality",
+    video: "video/mr_gray.mp4",
+    tagline: "Carries cones everywhere. Even to the canteen.",
+    stats: { position: "Defensive Mid (cone controller)", overall: 87, pacerating: 74, shooting: 68, passing: 82, defending: 84, stamina: 90 },
+    facts: [
+      { label: "Special Move", value: "The ‘Cone Wall’ — sets up a defensive shape mid‑game. Nobody asked." },
+      { label: "Weakness", value: "Sees a straight line and has to make it a circuit." },
+      { label: "Pre‑match Talk", value: "‘No excuses. Unless your laces are untied — then we do laces drills.’" },
+      { label: "Kit", value: "Owns 47 variations of the same tracksuit." },
+    ],
+    challenge: "Donate £1+ and he’ll allow ONE (1) water break without a lecture.",
+  },
+  {
+    id: "mr_groom",
+    name: "Mr Groom",
+    role: "School Caretaker",
+    club: "The only person here who can actually fix things",
+    video: "video/mr_groom.mp4",
+    tagline: "Repairs the goalposts… then hits the crossbar for fun.",
+    stats: { position: "Goalkeeper (maintenance mode)", overall: 85, pacerating: 65, shooting: 40, passing: 70, defending: 90, stamina: 86 },
+    facts: [
+      { label: "Special Move", value: "The ‘Spanner Save’ — catches the ball one‑handed while holding tools." },
+      { label: "Weakness", value: "Stops play to tighten a bolt. Fair enough." },
+      { label: "Superpower", value: "Can silence a squeaky door from 50 metres." },
+      { label: "Commentary", value: "‘That net’s not level.’" },
+    ],
+    challenge: "Donate and we’ll buy him a golden spanner trophy for ‘Most Reliable Person on the Pitch’.",
+  },
+  {
+    id: "mr_hales",
+    name: "Mr Hales",
+    role: "Geography Teacher • HoY 10 & 11",
+    club: "Knows the route to every exam hall",
+    video: "video/mr_hales.mp4",
+    tagline: "Sprints like it’s the last day before GCSEs.",
+    stats: { position: "Right Back (deadline merchant)", overall: 84, pacerating: 76, shooting: 58, passing: 74, defending: 82, stamina: 88 },
+    facts: [
+      { label: "Special Move", value: "The ‘Mock Exam’ — suddenly becomes elite under pressure." },
+      { label: "Weakness", value: "Hears ‘March’ and starts revising." },
+      { label: "Motivation", value: "‘We’ve got five minutes left — that’s basically a whole lesson!’" },
+      { label: "Celebration", value: "A calm nod. Then tells you your next steps." },
+    ],
+    challenge: "Donate £1+ and he’ll stop giving tactical feedback that sounds like a GCSE mark scheme.",
+  },
+  {
+    id: "mr_mycroft",
+    name: "Mr Mycroft",
+    role: "Teacher of English",
+    club: "Books > boots",
+    video: "video/mr_mycroft.mp4",
+    tagline: "Writes a sonnet about the offside trap.",
+    stats: { position: "Attacking Mid (narrator)", overall: 80, pacerating: 63, shooting: 62, passing: 78, defending: 60, stamina: 77 },
+    facts: [
+      { label: "Special Move", value: "The ‘Metaphor’ — calls a simple pass ‘a journey of self‑discovery’." },
+      { label: "Weakness", value: "Stops to analyse symbolism in the corner flag." },
+      { label: "Fun Fact", value: "Keeps a bookmark in the rulebook." },
+      { label: "Match Quote", value: "‘To tackle, or not to tackle…’" },
+    ],
+    challenge: "Donate and we’ll get him a water bottle that says ‘Plot Twist’.",
+  },
+  {
+    id: "mr_treen",
+    name: "Mr Treen",
+    role: "Teacher of Maths",
+    club: "Believes angles are everything",
+    video: "video/mr_treen.mp4",
+    tagline: "Calculates the perfect shot… then forgets to kick it.",
+    stats: { position: "Centre Mid (geometry)", overall: 82, pacerating: 66, shooting: 70, passing: 80, defending: 70, stamina: 79 },
+    facts: [
+      { label: "Special Move", value: "The ‘Pythagoras Pass’ — brilliant diagonal ball, accompanied by working out." },
+      { label: "Weakness", value: "Argues with the ref about ‘margins of error’." },
+      { label: "Signature", value: "Shouts ‘ACUTE!’ when he turns." },
+      { label: "Greatest Fear", value: "An uneven scoreboard." },
+    ],
+    challenge: "Donate £1+ and he’ll stop insisting the match needs a ‘clearer marking scheme’.",
+  },
+
+  {
+    id: "dr_levitt",
+    name: "Dr Levitt",
+    role: "Maths Teacher (Sixth Form specialist)",
+    club: "A‑Level algebra enjoyer",
+    video: "video/dr_levitt.mp4",
+    tagline: "Turns a counter‑attack into a 12‑mark proof. Nobody asked, but everyone learned something.",
+    stats: { position: "CDM (calculated)", overall: 90, pacerating: 70, shooting: 62, passing: 95, defending: 92, stamina: 84 },
+    facts: [
+      { label: "Special Move", value: "The ‘Differentiation’ — changes direction so fast the winger becomes a function." },
+      { label: "Signature Phrase", value: "‘Let’s just… simplify that.’ (opponents vanish)" },
+      { label: "Weakness", value: "Will stop play to explain why your ‘angle’ is only approximately right." },
+      { label: "Sixth Form Flex", value: "Refuses to take throw‑ins unless they’re in standard form." },
+    ],
+    challenge: "Donate £1+ and he’ll grade the match using a mark scheme and a very small ruler.",
+  },
+
+  {
+    id: "mr_yorke",
+    name: "Mr Yorke",
+    role: "Science Technician",
+    club: "Runs experiments. On the ball.",
+    video: "video/mr_yorke.mp4",
+    tagline: "The only man who turns shin pads into a controlled variable.",
+    stats: { position: "Utility Player (lab certified)", overall: 81, pacerating: 69, shooting: 63, passing: 75, defending: 74, stamina: 78 },
+    facts: [
+      { label: "Special Move", value: "The ‘Bunsen Burner’ — surprisingly spicy tackle, fully risk-assessed." },
+      { label: "Weakness", value: "Stops the match to label equipment." },
+      { label: "Fun Fact", value: "Has goggles ‘just in case’." },
+      { label: "Catchphrase", value: "‘That shot wasn’t repeatable.’" },
+    ],
+    challenge: "Donate and we’ll fund his dream: a football made of 100% peer‑reviewed science.",
+  },
+  {
+    id: "mrs_bartlett",
+    name: "Mrs Bartlett",
+    role: "PE & Science Teacher",
+    club: "Fitness + facts",
+    video: "video/mrs_bartlett.mp4",
+    tagline: "Can sprint, coach, AND explain photosynthesis while pressing.",
+    stats: { position: "Wing Back (multi‑discipline)", overall: 86, pacerating: 80, shooting: 66, passing: 79, defending: 78, stamina: 92 },
+    facts: [
+      { label: "Special Move", value: "The ‘Double Lesson’ — wins the ball, then sets you homework." },
+      { label: "Weakness", value: "None detected. Please run diagnostics again." },
+      { label: "Science Flex", value: "Explains why your cramp is basically your fault." },
+      { label: "Team Talk", value: "‘Good effort. Now do it properly.’" },
+    ],
+    challenge: "Donate £1+ and we’ll let her write the tactics — because clearly she’s the adult here.",
+  },
+  {
+    id: "mrs_bleasdale",
+    name: "Mrs Bleasdale",
+    role: "Head of Sixth Form • English Teacher",
+    club: "Runs a tight ship",
+    video: "video/mrs_bleasdale.mp4",
+    tagline: "Turns up. Organises everyone. Still scores.",
+    stats: { position: "Captain (no excuses)", overall: 88, pacerating: 70, shooting: 74, passing: 86, defending: 80, stamina: 89 },
+    facts: [
+      { label: "Special Move", value: "The ‘Sixth Form Stare’ — opposition forgets how to dribble." },
+      { label: "Weakness", value: "Will not accept ‘I tried’ as a valid defensive strategy." },
+      { label: "English Power", value: "Marks your tackling with WWW/EBI." },
+      { label: "Captaincy", value: "Hands out detentions for poor marking (the football kind)." },
+    ],
+    challenge: "Donate and we’ll create a ‘Player of the Match’ certificate with actual formal wording.",
+  },
+  {
+    id: "mrs_dawkins",
+    name: "Mrs Dawkins",
+    role: "Science Teacher",
+    club: "Strictly evidence-based football",
+    video: "video/mrs_dawkins.mp4",
+    tagline: "Refuses to accept ‘it just went in’ without a hypothesis.",
+    stats: { position: "Centre Back (peer review)", overall: 83, pacerating: 64, shooting: 52, passing: 73, defending: 86, stamina: 81 },
+    facts: [
+      { label: "Special Move", value: "The ‘Control Group’ — shuts down the attacker and takes notes." },
+      { label: "Weakness", value: "Wants to repeat the match three times for reliability." },
+      { label: "Lab Skill", value: "Can sterilise a midfield in minutes." },
+      { label: "Catchphrase", value: "‘Correlation is not causation… but that was definitely your fault.’" },
+    ],
+    challenge: "Donate £1+ and we’ll let her publish the match report in ‘Journal of Questionable Tactics’.",
+  },
+  {
+    id: "mrs_obrien",
+    name: "Mrs O’Brien",
+    role: "Science Teacher",
+    club: "Energy transfer specialist",
+    video: "video/mrs_obrien.mp4",
+    tagline: "Turns nervous energy into pure pressing.",
+    stats: { position: "Midfielder (high energy)", overall: 82, pacerating: 72, shooting: 58, passing: 78, defending: 73, stamina: 87 },
+    facts: [
+      { label: "Special Move", value: "The ‘Energy Transfer’ — wins the ball and somehow you’re the one tired." },
+      { label: "Weakness", value: "Gets distracted by a perfectly round football." },
+      { label: "Science Fact", value: "Explains momentum while sprinting. Show-off." },
+      { label: "Team Contribution", value: "Keeps the squad running when everyone else is negotiating." },
+    ],
+    challenge: "Donate and we’ll buy extra red noses so she can hand them out after crunching tackles.",
+  },
+  {
+    id: "mrs_pickering",
+    name: "Mrs Pickering",
+    role: "Business Teacher",
+    club: "Negotiates better than she tackles",
+    video: "video/mrs_pickering.mp4",
+    tagline: "Can sell you a ‘premium’ throw‑in in three easy payments.",
+    stats: { position: "Winger (deal maker)", overall: 80, pacerating: 73, shooting: 60, passing: 79, defending: 62, stamina: 76 },
+    facts: [
+      { label: "Special Move", value: "The ‘Upsell’ — turns a simple pass into a ‘limited edition opportunity’." },
+      { label: "Weakness", value: "Attempts to invoice the referee." },
+      { label: "Business Skill", value: "Negotiates a corner into a free kick." },
+      { label: "Catchphrase", value: "‘What’s the ROI on sprinting?’" },
+    ],
+    challenge: "Donate £1+ and she’ll stop trying to trademark the phrase ‘Sports Relief’.",
+  },
+{
+    id: "mr_yorke_spare",
+    name: "Mr Yorke (Prototype)",
+    role: "Science Technician",
+    club: "Experimental tactics",
+    video: "video/mr_yorke.mp4",
+    tagline: "Not a player. A controlled experiment with boots.",
+    stats: { position: "Wildcard", overall: 84, pacerating: 69, shooting: 69, passing: 69, defending: 69, stamina: 69 },
+    facts: [
+      { label: "Special Move", value: "‘The Hypothesis’ — tries something odd, then says ‘Interesting…’" },
+      { label: "Weakness", value: "Needs three trials before committing to a pass." },
+      { label: "Safety", value: "Full risk assessment completed." },
+      { label: "Guarantee", value: "Results may vary." },
+    ],
+    challenge: "Donate £1+ and we’ll buy him a clipboard that says ‘Football Science’.",
+  },
+];
+
+function getStaffById(id) {
+  return STAFF.find((s) => s.id === id) || STAFF[0];
 }
-
-function toast(msg) {
-  const el = $("#toast");
-  if (!el) return;
-  el.textContent = msg;
-  el.classList.add("toast--show");
-  window.clearTimeout(toast._t);
-  toast._t = window.setTimeout(() => el.classList.remove("toast--show"), 2400);
-}
-
-function getParam(name) {
-  const url = new URL(window.location.href);
-  return url.searchParams.get(name);
-}
-
-function setDonateLinks() {
-  ["#donateTop", "#donateProfile"].forEach((sel) => {
-    const el = $(sel);
-    if (el) el.setAttribute("href", DONATE_URL);
-  });
-}
-
-function factItem(label, value) {
-  const div = document.createElement("div");
-  div.className = "fact";
-  div.innerHTML = `
-    <div class="fact__label">${escapeHtml(label)}</div>
-    <div class="fact__value">${escapeHtml(value)}</div>
-  `;
-  return div;
-}
-
-function renderStats(stats) {
-  const wrap = document.createElement("div");
-  wrap.className = "ratings";
-
-  const top = document.createElement("div");
-  top.className = "ratings__top";
-  top.innerHTML = `
-    <div class="ratings__overall">
-      <div class="ratings__overallNum">${stats.overall}</div>
-      <div class="ratings__overallLabel">OVR</div>
-    </div>
-    <div class="ratings__pos">${escapeHtml(stats.position)}</div>
-  `;
-  wrap.appendChild(top);
-
-  const rows = [
-    ["PACE", stats.pacerating],
-    ["SHOOT", stats.shooting],
-    ["PASS", stats.passing],
-    ["DEF", stats.defending],
-    ["STAM", stats.stamina],
-  ];
-
-  const grid = document.createElement("div");
-  grid.className = "ratings__grid";
-  rows.forEach(([k, v]) => {
-    const item = document.createElement("div");
-    item.className = "rating";
-    item.innerHTML = `
-      <div class="rating__k">${k}</div>
-      <div class="rating__v">${v}</div>
-      <div class="rating__bar"><span style="width:${Math.max(0, Math.min(100, v))}%"></span></div>
-    `;
-    grid.appendChild(item);
-  });
-  wrap.appendChild(grid);
-
-  return wrap;
-}
-
-function escapeHtml(str) {
-  return String(str)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/\"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-}
-
-function init() {
-  setDonateLinks();
-
-  const id = getParam("id") || "";
-  const staff = getStaffById(id);
-
-  document.title = `${staff.name} • Player Profile`;
-  $("#name").textContent = staff.name;
-  $("#tagline").textContent = staff.tagline;
-  $("#rolePill").textContent = staff.role;
-  $("#challengeText").textContent = staff.challenge;
-
-  const facts = $("#facts");
-  facts.innerHTML = "";
-  facts.appendChild(renderStats(staff.stats));
-  staff.facts.forEach((f) => facts.appendChild(factItem(f.label, f.value)));
-
-  const video = $("#profileVideo");
-  video.src = staff.video;
-  video.addEventListener("canplay", () => {
-    const p = video.play();
-    if (p && typeof p.catch === "function") p.catch(() => {});
-  });
-
-  const copy = $("#copyProfileLink");
-  if (copy) {
-    copy.addEventListener("click", async () => {
-      try {
-        await navigator.clipboard.writeText(window.location.href);
-        toast("Profile link copied 📋");
-      } catch {
-        toast("Couldn’t copy link — you can copy from the address bar.");
-      }
-    });
-  }
-}
-
-document.addEventListener("DOMContentLoaded", init);
