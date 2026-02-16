@@ -449,3 +449,230 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation M
   width:auto;
   display:block;
 }
+
+/* --- Profile stat bars --- */
+.statBars{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap:14px;
+  margin:18px 0 18px;
+}
+@media (max-width: 860px){
+  .statBars{ grid-template-columns: 1fr; }
+}
+.statBar{
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 12px 12px 10px;
+  box-shadow: 0 14px 40px rgba(0,0,0,.35);
+}
+.statBar__top{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:10px;
+}
+.statBar__label{
+  font-weight:800;
+  letter-spacing:.2px;
+}
+.statBar__value{
+  font-family: Anton, system-ui, sans-serif;
+  font-size: 22px;
+  line-height: 1;
+}
+.statBar__track{
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.12);
+  overflow:hidden;
+  position:relative;
+}
+.statBar__fill{
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--donate), var(--gold));
+  box-shadow: 0 0 0 1px rgba(255,255,255,.10) inset;
+  transition: width 700ms ease;
+}
+
+
+/* --- Cooler profile text treatment (facts grid) --- */
+.profileGrid{
+  gap: 16px;
+}
+.factCard{
+  position: relative;
+  overflow: hidden;
+}
+.factCard::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background: radial-gradient(900px 220px at 10% 0%, rgba(255,74,110,.22), transparent 55%),
+              radial-gradient(700px 220px at 90% 10%, rgba(255,205,66,.16), transparent 60%);
+  opacity:.9;
+  pointer-events:none;
+}
+.factCard::after{
+  content:"";
+  position:absolute;
+  left:14px;
+  top:14px;
+  width:8px;
+  height:8px;
+  border-radius:999px;
+  background: linear-gradient(90deg, var(--donate), var(--gold));
+  box-shadow: 0 0 0 4px rgba(255,255,255,.06);
+  pointer-events:none;
+}
+.factCard__k{
+  position: relative;
+  z-index: 1;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-weight: 900;
+  color: rgba(255,255,255,.78);
+  margin-bottom: 8px;
+  padding-left: 18px; /* align with dot */
+}
+.factCard__v{
+  position: relative;
+  z-index: 1;
+  font-size: 18px;
+  line-height: 1.25;
+  font-weight: 800;
+  color: rgba(255,255,255,.96);
+  text-shadow: 0 10px 30px rgba(0,0,0,.35);
+  padding-left: 18px; /* align with dot */
+}
+/* Give the 'value' a subtle highlight on hover for fun */
+.factCard:hover .factCard__v{
+  color: #fff;
+  filter: drop-shadow(0 10px 26px rgba(255,74,110,.18));
+}
+
+/* =========================
+   FIFA-STYLE PROFILE FACT CARDS (override)
+   ========================= */
+
+/* Keep grid tidy */
+.profileGrid{ gap: 18px; }
+
+/* Card shell */
+.factCard{
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  padding: 18px 18px 16px;
+  border: 1px solid rgba(255,255,255,.10);
+  background:
+    radial-gradient(900px 300px at 15% 0%, rgba(255,70,120,.22), transparent 55%),
+    radial-gradient(700px 260px at 95% 20%, rgba(255,205,66,.18), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  box-shadow: 0 18px 50px rgba(0,0,0,.40);
+  transform: translateZ(0);
+}
+
+/* Neon edge trim */
+.factCard::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius: 18px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255,74,110,.75), rgba(255,205,66,.55), rgba(90,200,255,.35));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity:.60;
+  pointer-events:none;
+}
+
+/* Diagonal pack shimmer sweep */
+.factCard::after{
+  content:"";
+  position:absolute;
+  inset:-40%;
+  background: linear-gradient(115deg,
+    transparent 0%,
+    rgba(255,255,255,.08) 35%,
+    rgba(255,255,255,.18) 45%,
+    rgba(255,255,255,.08) 55%,
+    transparent 100%);
+  transform: translateX(-60%) rotate(8deg);
+  opacity: 0;
+  pointer-events:none;
+}
+
+.factCard:hover{
+  transform: translateY(-3px);
+  border-color: rgba(255,255,255,.16);
+  box-shadow: 0 22px 60px rgba(0,0,0,.48);
+}
+.factCard:hover::before{ opacity:.90; }
+.factCard:hover::after{
+  opacity:.90;
+  animation: fifaShimmer 900ms ease forwards;
+}
+@keyframes fifaShimmer{
+  from { transform: translateX(-60%) rotate(8deg); }
+  to   { transform: translateX(60%) rotate(8deg); }
+}
+
+/* Heading (bigger than body) */
+.factCard__k{
+  position: relative;
+  z-index: 1;
+  font-size: 15px !important;
+  text-transform: uppercase;
+  letter-spacing: .24em;
+  font-weight: 900;
+  color: rgba(255,255,255,.86);
+  margin-bottom: 10px;
+  padding-left: 22px;
+  text-shadow: 0 10px 30px rgba(0,0,0,.45);
+}
+
+/* Badge dot */
+.factCard__k::before{
+  content:"";
+  position:absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--donate), var(--gold));
+  box-shadow:
+    0 0 0 4px rgba(255,255,255,.07),
+    0 0 18px rgba(255,74,110,.35);
+}
+
+/* Body (slightly smaller so heading wins) */
+.factCard__v{
+  position: relative;
+  z-index: 1;
+  font-size: 16px !important;
+  line-height: 1.42;
+  font-weight: 700;
+  color: rgba(255,255,255,.95);
+  text-shadow: 0 12px 36px rgba(0,0,0,.40);
+  padding-left: 22px;
+}
+
+/* Wide cards keep rhythm */
+.factCard--wide{ padding-top: 20px; }
+
+/* Quotes pop a bit */
+.factCard__v em,
+.factCard__v i{
+  color: rgba(255,205,66,.95);
+  font-style: normal;
+  font-weight: 800;
+}
