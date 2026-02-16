@@ -57,6 +57,7 @@ const STAFF = [
     ],
     challenge: "Donate £1+ and Mr Chapman will stop requesting tea breaks every 20 minutes.",
   },
+  
   {
     id: "mr_chatten",
     name: "Mr Chatten",
@@ -191,7 +192,7 @@ const STAFF = [
     name: "Dr Levitt",
     role: "Maths Teacher (Sixth Form specialist)",
     club: "A‑Level algebra enjoyer",
-    video: "img/dr_levitt.mp4",
+    video: "video/dr_levitt.mp4",
     tagline: "Turns a counter‑attack into a 12‑mark proof. Nobody asked, but everyone learned something.",
     stats: { position: "CDM (calculated)", overall: 90, pacerating: 70, shooting: 62, passing: 95, defending: 92, stamina: 84 },
     facts: [
