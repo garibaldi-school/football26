@@ -25,6 +25,7 @@ const STAFF = [
     ],
     challenge: "Donate £1+ and Mr Brennan will stop shouting ‘COME ON YOU REDS!’ at completely unrelated sports.",
   },
+
   {
     id: "mr_brimelow",
     name: "Mr Brimelow",
@@ -41,6 +42,7 @@ const STAFF = [
     ],
     challenge: "Donate and we’ll fund his dream: a VAR booth with spotlighting and dramatic music.",
   },
+
   {
     id: "mr_chapman",
     name: "Mr Chapman",
@@ -57,7 +59,7 @@ const STAFF = [
     ],
     challenge: "Donate £1+ and Mr Chapman will stop requesting tea breaks every 20 minutes.",
   },
-  
+
   {
     id: "mr_chatten",
     name: "Mr Chatten",
@@ -74,6 +76,7 @@ const STAFF = [
     ],
     challenge: "Donate £1+ and he’ll promise (with fingers crossed) not to hack the scoreboard.",
   },
+
   {
     id: "mr_dawson",
     name: "Mr Dawson",
@@ -90,6 +93,7 @@ const STAFF = [
     ],
     challenge: "Donate £1+ and he’ll stop asking the crowd to complete a post-match survey.",
   },
+
   {
     id: "mr_glynne-jones",
     name: "Mr Glynne‑Jones",
@@ -106,6 +110,7 @@ const STAFF = [
     ],
     challenge: "Donate and we’ll convince him the match is NOT assessed against GCSE PE criteria.",
   },
+
   {
     id: "mr_gray",
     name: "Mr Gray",
@@ -122,6 +127,7 @@ const STAFF = [
     ],
     challenge: "Donate £1+ and he’ll allow ONE (1) water break without a lecture.",
   },
+
   {
     id: "mr_groom",
     name: "Mr Groom",
@@ -138,6 +144,7 @@ const STAFF = [
     ],
     challenge: "Donate and we’ll buy him a golden spanner trophy for ‘Most Reliable Person on the Pitch’.",
   },
+
   {
     id: "mr_hales",
     name: "Mr Hales",
@@ -154,6 +161,7 @@ const STAFF = [
     ],
     challenge: "Donate £1+ and he’ll stop giving tactical feedback that sounds like a GCSE mark scheme.",
   },
+
   {
     id: "mr_mycroft",
     name: "Mr Mycroft",
@@ -170,6 +178,7 @@ const STAFF = [
     ],
     challenge: "Donate and we’ll get him a water bottle that says ‘Plot Twist’.",
   },
+
   {
     id: "mr_treen",
     name: "Mr Treen",
@@ -220,6 +229,7 @@ const STAFF = [
     ],
     challenge: "Donate and we’ll fund his dream: a football made of 100% peer‑reviewed science.",
   },
+
   {
     id: "mrs_bartlett",
     name: "Mrs Bartlett",
@@ -236,6 +246,7 @@ const STAFF = [
     ],
     challenge: "Donate £1+ and we’ll let her write the tactics — because clearly she’s the adult here.",
   },
+
   {
     id: "mrs_bleasdale",
     name: "Mrs Bleasdale",
@@ -252,6 +263,7 @@ const STAFF = [
     ],
     challenge: "Donate and we’ll create a ‘Player of the Match’ certificate with actual formal wording.",
   },
+
   {
     id: "mrs_dawkins",
     name: "Mrs Dawkins",
@@ -268,6 +280,7 @@ const STAFF = [
     ],
     challenge: "Donate £1+ and we’ll let her publish the match report in ‘Journal of Questionable Tactics’.",
   },
+
   {
     id: "mrs_obrien",
     name: "Mrs O’Brien",
@@ -284,6 +297,7 @@ const STAFF = [
     ],
     challenge: "Donate and we’ll buy extra red noses so she can hand them out after crunching tackles.",
   },
+
   {
     id: "mrs_pickering",
     name: "Mrs Pickering",
@@ -299,22 +313,6 @@ const STAFF = [
       { label: "Catchphrase", value: "‘What’s the ROI on sprinting?’" },
     ],
     challenge: "Donate £1+ and she’ll stop trying to trademark the phrase ‘Sports Relief’.",
-  },
-{
-    id: "mr_yorke_spare",
-    name: "Mr Yorke (Prototype)",
-    role: "Science Technician",
-    club: "Experimental tactics",
-    video: "video/mr_yorke.mp4",
-    tagline: "Not a player. A controlled experiment with boots.",
-    stats: { position: "Wildcard", overall: 84, pacerating: 69, shooting: 69, passing: 69, defending: 69, stamina: 69 },
-    facts: [
-      { label: "Special Move", value: "‘The Hypothesis’ — tries something odd, then says ‘Interesting…’" },
-      { label: "Weakness", value: "Needs three trials before committing to a pass." },
-      { label: "Safety", value: "Full risk assessment completed." },
-      { label: "Guarantee", value: "Results may vary." },
-    ],
-    challenge: "Donate £1+ and we’ll buy him a clipboard that says ‘Football Science’.",
   },
 ];
 
